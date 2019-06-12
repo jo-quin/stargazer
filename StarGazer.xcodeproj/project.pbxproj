@@ -13,12 +13,12 @@
 		3F5F3BB322AFC776005CB4FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5F3BB122AFC776005CB4FF /* Main.storyboard */; };
 		3F5F3BB522AFC777005CB4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5F3BB422AFC777005CB4FF /* Assets.xcassets */; };
 		3F5F3BB822AFC777005CB4FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5F3BB622AFC777005CB4FF /* LaunchScreen.storyboard */; };
-		3F5F3BC322AFC778005CB4FF /* StarGazerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F3BC222AFC778005CB4FF /* StarGazerTests.swift */; };
 		3F5F3BCE22AFC778005CB4FF /* StarGazerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F3BCD22AFC778005CB4FF /* StarGazerUITests.swift */; };
 		3FFAEEA822B1027C00078E46 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA722B1027C00078E46 /* Nimble.framework */; };
 		3FFAEEAA22B1028000078E46 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA922B1027F00078E46 /* Quick.framework */; };
 		3FFAEEAD22B1029100078E46 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEAC22B1029100078E46 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3FFAEEAF22B1029E00078E46 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEAE22B1029E00078E46 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FFAEEB122B1084600078E46 /* StarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAEEB022B1084600078E46 /* StarSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,6 @@
 		3F5F3BB722AFC777005CB4FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F5F3BB922AFC777005CB4FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F5F3BBE22AFC778005CB4FF /* StarGazerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarGazerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F5F3BC222AFC778005CB4FF /* StarGazerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazerTests.swift; sourceTree = "<group>"; };
 		3F5F3BC422AFC778005CB4FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F5F3BC922AFC778005CB4FF /* StarGazerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarGazerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5F3BCD22AFC778005CB4FF /* StarGazerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazerUITests.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		3FFAEEA922B1027F00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		3FFAEEAC22B1029100078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3FFAEEAE22B1029E00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		3FFAEEB022B1084600078E46 /* StarSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarSpec.swift; path = ../../stargazer/StarGazerTests/StarSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +140,8 @@
 		3F5F3BC122AFC778005CB4FF /* StarGazerTests */ = {
 			isa = PBXGroup;
 			children = (
-				3F5F3BC222AFC778005CB4FF /* StarGazerTests.swift */,
 				3F5F3BC422AFC778005CB4FF /* Info.plist */,
+				3FFAEEB022B1084600078E46 /* StarSpec.swift */,
 			);
 			path = StarGazerTests;
 			sourceTree = "<group>";
@@ -236,6 +236,7 @@
 					};
 					3F5F3BBD22AFC778005CB4FF = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 3F5F3BA722AFC776005CB4FF;
 					};
 					3F5F3BC822AFC778005CB4FF = {
@@ -306,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F5F3BC322AFC778005CB4FF /* StarGazerTests.swift in Sources */,
+				3FFAEEB122B1084600078E46 /* StarSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +389,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
@@ -450,6 +452,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -511,6 +514,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StarGazerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -520,6 +524,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = StarGeezers.StarGazerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarGazer.app/StarGazer";
@@ -531,6 +536,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StarGazerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

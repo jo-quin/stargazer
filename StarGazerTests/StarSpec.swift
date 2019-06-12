@@ -1,15 +1,14 @@
 //
-//  StarGazerTests.swift
+//  StarSpec.swift
 //  StarGazerTests
 //
-//  Created by Student on 11/06/2019.
+//  Created by Student on 12/06/2019.
 //  Copyright © 2019 Student. All rights reserved.
 //
 
 import XCTest
-@testable import StarGazer
 
-class StarGazerTests: XCTestCase {
+class StarSpec: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
