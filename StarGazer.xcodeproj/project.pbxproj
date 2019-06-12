@@ -15,6 +15,10 @@
 		3F5F3BB822AFC777005CB4FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5F3BB622AFC777005CB4FF /* LaunchScreen.storyboard */; };
 		3F5F3BC322AFC778005CB4FF /* StarGazerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F3BC222AFC778005CB4FF /* StarGazerTests.swift */; };
 		3F5F3BCE22AFC778005CB4FF /* StarGazerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F3BCD22AFC778005CB4FF /* StarGazerUITests.swift */; };
+		3FFAEEA822B1027C00078E46 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA722B1027C00078E46 /* Nimble.framework */; };
+		3FFAEEAA22B1028000078E46 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA922B1027F00078E46 /* Quick.framework */; };
+		3FFAEEAD22B1029100078E46 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEAC22B1029100078E46 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FFAEEAF22B1029E00078E46 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEAE22B1029E00078E46 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3FFAEEAB22B1028500078E46 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				3FFAEEAD22B1029100078E46 /* Nimble.framework in CopyFiles */,
+				3FFAEEAF22B1029E00078E46 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3F5F3BA822AFC776005CB4FF /* StarGazer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarGazer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5F3BAB22AFC776005CB4FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +67,10 @@
 		3F5F3BC922AFC778005CB4FF /* StarGazerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarGazerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5F3BCD22AFC778005CB4FF /* StarGazerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazerUITests.swift; sourceTree = "<group>"; };
 		3F5F3BCF22AFC778005CB4FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FFAEEA722B1027C00078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		3FFAEEA922B1027F00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		3FFAEEAC22B1029100078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		3FFAEEAE22B1029E00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFAEEA822B1027C00078E46 /* Nimble.framework in Frameworks */,
+				3FFAEEAA22B1028000078E46 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +103,13 @@
 		3F5F3B9F22AFC776005CB4FF = {
 			isa = PBXGroup;
 			children = (
+				3FFAEEAE22B1029E00078E46 /* Quick.framework */,
+				3FFAEEAC22B1029100078E46 /* Nimble.framework */,
 				3F5F3BAA22AFC776005CB4FF /* StarGazer */,
 				3F5F3BC122AFC778005CB4FF /* StarGazerTests */,
 				3F5F3BCC22AFC778005CB4FF /* StarGazerUITests */,
 				3F5F3BA922AFC776005CB4FF /* Products */,
+				3FFAEEA622B1027C00078E46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,15 @@
 			path = StarGazerUITests;
 			sourceTree = "<group>";
 		};
+		3FFAEEA622B1027C00078E46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FFAEEA922B1027F00078E46 /* Quick.framework */,
+				3FFAEEA722B1027C00078E46 /* Nimble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +174,7 @@
 				3F5F3BA422AFC776005CB4FF /* Sources */,
 				3F5F3BA522AFC776005CB4FF /* Frameworks */,
 				3F5F3BA622AFC776005CB4FF /* Resources */,
+				3FFAEEAB22B1028500078E46 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -353,6 +390,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -414,6 +452,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
