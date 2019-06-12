@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,9 +17,15 @@
 		3FEEEDCD22B142AA003B1955 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEEDCC22B142AA003B1955 /* Grid.swift */; };
 		3FFAEEA822B1027C00078E46 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA722B1027C00078E46 /* Nimble.framework */; };
 		3FFAEEAA22B1028000078E46 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA922B1027F00078E46 /* Quick.framework */; };
-		3FFAEEAD22B1029100078E46 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEAC22B1029100078E46 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3FFAEEAF22B1029E00078E46 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEAE22B1029E00078E46 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3FFAEEB122B1084600078E46 /* StarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAEEB022B1084600078E46 /* StarSpec.swift */; };
+		3FFAEEB222B139CA00078E46 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEAC22B1029100078E46 /* Nimble.framework */; };
+		3FFAEEB322B139CE00078E46 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEAE22B1029E00078E46 /* Quick.framework */; };
+		3FFAEEB422B139DE00078E46 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEAC22B1029100078E46 /* Nimble.framework */; };
+		3FFAEEB522B139E100078E46 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEAE22B1029E00078E46 /* Quick.framework */; };
+		3FFAEEB822B13A1E00078E46 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEB722B13A1E00078E46 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FFAEEBA22B13A2600078E46 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEB922B13A2500078E46 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FFAEEBD22B13A3900078E46 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEBC22B13A3900078E46 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FFAEEBF22B13A3F00078E46 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FFAEEBE22B13A3F00078E46 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +52,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				3FFAEEAD22B1029100078E46 /* Nimble.framework in CopyFiles */,
-				3FFAEEAF22B1029E00078E46 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FFAEEB622B13A0400078E46 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				3FFAEEB822B13A1E00078E46 /* Nimble.framework in CopyFiles */,
+				3FFAEEBA22B13A2600078E46 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FFAEEBB22B13A3000078E46 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				3FFAEEBD22B13A3900078E46 /* Nimble.framework in CopyFiles */,
+				3FFAEEBF22B13A3F00078E46 /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +99,10 @@
 		3FFAEEAC22B1029100078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3FFAEEAE22B1029E00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		3FFAEEB022B1084600078E46 /* StarSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarSpec.swift; path = ../../stargazer/StarGazerTests/StarSpec.swift; sourceTree = "<group>"; };
+		3FFAEEB722B13A1E00078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		3FFAEEB922B13A2500078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		3FFAEEBC22B13A3900078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		3FFAEEBE22B13A3F00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFAEEB222B139CA00078E46 /* Nimble.framework in Frameworks */,
+				3FFAEEB322B139CE00078E46 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFAEEB422B139DE00078E46 /* Nimble.framework in Frameworks */,
+				3FFAEEB522B139E100078E46 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +139,10 @@
 		3F5F3B9F22AFC776005CB4FF = {
 			isa = PBXGroup;
 			children = (
+				3FFAEEBE22B13A3F00078E46 /* Quick.framework */,
+				3FFAEEBC22B13A3900078E46 /* Nimble.framework */,
+				3FFAEEB922B13A2500078E46 /* Quick.framework */,
+				3FFAEEB722B13A1E00078E46 /* Nimble.framework */,
 				3FFAEEAE22B1029E00078E46 /* Quick.framework */,
 				3FFAEEAC22B1029100078E46 /* Nimble.framework */,
 				3F5F3BAA22AFC776005CB4FF /* StarGazer */,
@@ -178,6 +216,7 @@
 				3F5F3BA522AFC776005CB4FF /* Frameworks */,
 				3F5F3BA622AFC776005CB4FF /* Resources */,
 				3FFAEEAB22B1028500078E46 /* CopyFiles */,
+				3FFAEEC022B1407B00078E46 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -195,6 +234,7 @@
 				3F5F3BBA22AFC778005CB4FF /* Sources */,
 				3F5F3BBB22AFC778005CB4FF /* Frameworks */,
 				3F5F3BBC22AFC778005CB4FF /* Resources */,
+				3FFAEEBB22B13A3000078E46 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -213,6 +253,7 @@
 				3F5F3BC522AFC778005CB4FF /* Sources */,
 				3F5F3BC622AFC778005CB4FF /* Frameworks */,
 				3F5F3BC722AFC778005CB4FF /* Resources */,
+				3FFAEEB622B13A0400078E46 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -295,6 +336,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FFAEEC022B1407B00078E46 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F5F3BA422AFC776005CB4FF /* Sources */ = {
