@@ -14,6 +14,7 @@
 		3F5F3BB522AFC777005CB4FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5F3BB422AFC777005CB4FF /* Assets.xcassets */; };
 		3F5F3BB822AFC777005CB4FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5F3BB622AFC777005CB4FF /* LaunchScreen.storyboard */; };
 		3F5F3BCE22AFC778005CB4FF /* StarGazerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F3BCD22AFC778005CB4FF /* StarGazerUITests.swift */; };
+		3FEEEDCD22B142AA003B1955 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEEDCC22B142AA003B1955 /* Grid.swift */; };
 		3FFAEEA822B1027C00078E46 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA722B1027C00078E46 /* Nimble.framework */; };
 		3FFAEEAA22B1028000078E46 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAEEA922B1027F00078E46 /* Quick.framework */; };
 		3FFAEEB122B1084600078E46 /* StarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAEEB022B1084600078E46 /* StarSpec.swift */; };
@@ -92,6 +93,7 @@
 		3F5F3BC922AFC778005CB4FF /* StarGazerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarGazerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5F3BCD22AFC778005CB4FF /* StarGazerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazerUITests.swift; sourceTree = "<group>"; };
 		3F5F3BCF22AFC778005CB4FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FEEEDCC22B142AA003B1955 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		3FFAEEA722B1027C00078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3FFAEEA922B1027F00078E46 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../stargazer/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		3FFAEEAC22B1029100078E46 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../stargazer/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		3F5F3BAA22AFC776005CB4FF /* StarGazer */ = {
 			isa = PBXGroup;
 			children = (
+				3FEEEDCC22B142AA003B1955 /* Grid.swift */,
 				3F5F3BAB22AFC776005CB4FF /* AppDelegate.swift */,
 				3F5F3BAD22AFC776005CB4FF /* art.scnassets */,
 				3F5F3BAF22AFC776005CB4FF /* ViewController.swift */,
@@ -363,6 +366,7 @@
 			files = (
 				3F5F3BB022AFC776005CB4FF /* ViewController.swift in Sources */,
 				3F5F3BAC22AFC776005CB4FF /* AppDelegate.swift in Sources */,
+				3FEEEDCD22B142AA003B1955 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,12 +547,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RQ938X45Q8;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = StarGazer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = StarGeezers.StarGazer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StarGeezers.StarGazer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -560,12 +566,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RQ938X45Q8;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = StarGazer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = StarGeezers.StarGazer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StarGeezers.StarGazer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
