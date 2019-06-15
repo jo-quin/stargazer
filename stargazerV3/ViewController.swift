@@ -28,21 +28,22 @@ class ViewController: UIViewController {
         addSphere(material: "sun.jpeg", x: 90 , y: 0, z: 0, rotation: 5 )
         addSphere(material: "sun.jpg", x: -90 , y: 0, z: 0, rotation: -5 )
 
-//        addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
-//        addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
-//        addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
-//        addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
+        addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
+        addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
+        addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
+        addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
       
     }
     
     func addSphere(material: String, x: Int, y: Int, z: Int, rotation: CGFloat){
         let sphere = SCNNode(geometry: SCNSphere(radius: 10))
-        sphere.position = SCNVector3(x, y, z)
         let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
         let continuedRotate = SCNAction.repeatForever(rotate)
+        sphere.position = SCNVector3(x, y, z)
         sphere.geometry?.firstMaterial?.diffuse.contents = material
-        sceneView.scene.rootNode.addChildNode(sphere)
         sphere.runAction(continuedRotate)
+        sceneView.scene.rootNode.addChildNode(sphere)
+        
     }
     
     func addCoordinates(text: String, x: Int, y: Int, z: Int, rotation: CGFloat) {
