@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:art.scnassets"
-      name = "art.scnassets">
-      <Group
-         location = "group:Materials"
-         name = "Materials">
-         <FileRef
-            location = "group:Material _50_albedo.jpg">
-         </FileRef>
-         <FileRef
-            location = "group:Material _50_metallic.jpg">
-         </FileRef>
-         <FileRef
-            location = "group:Material _50_normal.jpg">
-         </FileRef>
-         <FileRef
-            location = "group:Material _50_roughness.jpg">
-         </FileRef>
-         <FileRef
-            location = "group:Material__50_albedo.jpeg">
-         </FileRef>
-         <FileRef
-            location = "group:Material__50_roughness.jpeg">
-         </FileRef>
-         <FileRef
-            location = "group:model.dae">
-         </FileRef>
-      </Group>
-      <FileRef
-         location = "group:ship.scn">
-      </FileRef>
-   </Group>
    <FileRef
       location = "self:">
    </FileRef>
