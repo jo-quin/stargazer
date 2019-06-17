@@ -94,6 +94,12 @@ class ViewController: UIViewController {
         sphere.position = SCNVector3(Float.random(in: 0 ..< 5),1 ,Float.random(in: 0 ..< 5))
         sphere.geometry?.firstMaterial?.diffuse.contents = material
         sceneView.scene.rootNode.addChildNode(sphere)
+        
+        // 1
+        let ceilingNode = makeCeilingNode()
+        ceilingNode.position = SCNVector3(0 , 10 , 0)
+        
+        sphere.addChildNode(ceilingNode)
     }
 
     func addPlanet(material: String, x: Int, y: Int, z: Int, rotation: CGFloat){
