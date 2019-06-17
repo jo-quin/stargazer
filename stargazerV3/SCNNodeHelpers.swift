@@ -9,44 +9,12 @@
 import Foundation
 import SceneKit
 
-let SURFACE_LENGTH: CGFloat = 3.0
-let SURFACE_HEIGHT: CGFloat = 0.2
-let SURFACE_WIDTH: CGFloat = 3.0
+let SURFACE_LENGTH: CGFloat = 100
+let SURFACE_HEIGHT: CGFloat = 0
+let SURFACE_WIDTH: CGFloat = 100
 
 let SCALEX: Float = 2.0
 let SCALEY: Float = 2.0
-
-func createPlaneNode(center: vector_float3,
-                     extent: vector_float3) -> SCNNode {
-    
-    let plane = SCNPlane(width: CGFloat(extent.x),
-                         height: CGFloat(extent.z))
-    
-    let planeMaterial = SCNMaterial()
-    planeMaterial.diffuse.contents = UIColor.yellow.withAlphaComponent(0.4)
-    
-    plane.materials = [planeMaterial]
-    
-    let planeNode = SCNNode(geometry: plane)
-    
-    planeNode.position = SCNVector3Make(center.x, 0, center.z)
-    
-    planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-    
-    return planeNode
-}
-
-func updatePlaneNode(_ node: SCNNode,
-                     center: vector_float3,
-                     extent: vector_float3) {
-    
-    let geometry = node.geometry as? SCNPlane
-    
-    geometry?.width = CGFloat(extent.x)
-    geometry?.height = CGFloat(extent.z)
-    
-    node.position = SCNVector3Make(center.x, 0, center.z)
-}
 
 func repeatTextures(geometry: SCNGeometry, scaleX: Float, scaleY: Float) {
     // 1

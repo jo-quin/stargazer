@@ -16,60 +16,15 @@ class ViewController: UIViewController {
     let config = ARWorldTrackingConfiguration()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
-        sceneView.session.run(config)
 
-        config.planeDetection = .horizontal
-
-        func createFloorNode(anchor:ARPlaneAnchor) ->SCNNode{
-            let floorNode = SCNNode(geometry: SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))) //1
-            floorNode.position=SCNVector3(anchor.center.x,0,anchor.center.z)
-            floorNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "night")
-            floorNode.geometry?.firstMaterial?.isDoubleSided = true
-            floorNode.eulerAngles = SCNVector3(Double.pi/2,0,0)
-            return floorNode
-        }
-
-        func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-            guard let planeAnchor = anchor as? ARPlaneAnchor else {return} //1
-            let planeNode = createFloorNode(anchor: planeAnchor) //2
-            node.addChildNode(planeNode) //3
-        }
-
-        func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-            guard let planeAnchor = anchor as? ARPlaneAnchor else {return}
-            node.enumerateChildNodes { (node, _) in
-                node.removeFromParentNode()
-            }
-
-            let planeNode = createFloorNode(anchor: planeAnchor)
-            node.addChildNode(planeNode)
-        }
-
-        func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-            guard let _ = anchor as? ARPlaneAnchor else {return}
-            node.enumerateChildNodes { (node, _) in
-                node.removeFromParentNode()
-            }
-
-            sceneView.delegate = self as? ARSCNViewDelegate
-
-
-        }
-        
-        
-        
-            
-            
-        
-        
         // Do any additional setup after loading the view.
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
         config.worldAlignment = .gravityAndHeading
 
         sceneView.session.run(config)
+        
+        addCeiling(material: "night.png")
 
         addStar(material: "texture.jpg")
         addStar(material: "sun.jpg")
@@ -85,21 +40,20 @@ class ViewController: UIViewController {
         addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
         addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
         addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
-
-
     }
-
+    
+    func addCeiling(material: String){
+        let ceilingNode = makeCeilingNode()
+        ceilingNode.position = SCNVector3(0 , 2, 0)
+        
+        sceneView.scene.rootNode.addChildNode(ceilingNode)
+    }
+    
     func addStar(material: String){
         let sphere = SCNNode(geometry: SCNSphere(radius: 0.25))
         sphere.position = SCNVector3(Float.random(in: 0 ..< 5),1 ,Float.random(in: 0 ..< 5))
         sphere.geometry?.firstMaterial?.diffuse.contents = material
         sceneView.scene.rootNode.addChildNode(sphere)
-        
-        // 1
-        let ceilingNode = makeCeilingNode()
-        ceilingNode.position = SCNVector3(0 , 10 , 0)
-        
-        sphere.addChildNode(ceilingNode)
     }
 
     func addPlanet(material: String, x: Int, y: Int, z: Int, rotation: CGFloat){
