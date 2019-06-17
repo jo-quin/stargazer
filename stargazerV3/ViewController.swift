@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
         sceneView.session.run(config)
         
-        addCeiling(material: "night.png")
+        addCeiling()
 
         addStar(material: "texture.jpg")
         addStar(material: "sun.jpg")
@@ -42,10 +42,9 @@ class ViewController: UIViewController {
         addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
     }
     
-    func addCeiling(material: String){
+    func addCeiling() {
         let ceilingNode = makeCeilingNode()
         ceilingNode.position = SCNVector3(0 , 2, 0)
-        
         sceneView.scene.rootNode.addChildNode(ceilingNode)
     }
     

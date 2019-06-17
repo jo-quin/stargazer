@@ -9,9 +9,9 @@
 import Foundation
 import SceneKit
 
-let SURFACE_LENGTH: CGFloat = 100
+let SURFACE_LENGTH: CGFloat = 2
 let SURFACE_HEIGHT: CGFloat = 0
-let SURFACE_WIDTH: CGFloat = 100
+let SURFACE_WIDTH: CGFloat = 2
 
 let SCALEX: Float = 2.0
 let SCALEY: Float = 2.0
@@ -50,43 +50,34 @@ func repeatTextures(geometry: SCNGeometry, scaleX: Float, scaleY: Float) {
 
 func makeCeilingNode() -> SCNNode {
     
-    let ceilingNode = SCNNode()
-    
-    // 3
-    let innerCeiling = SCNBox(width: SURFACE_WIDTH,
+    let ceiling = SCNBox(width: SURFACE_WIDTH,
                               height: SURFACE_HEIGHT,
                               length: SURFACE_LENGTH,
                               chamferRadius: 0)
     
-    // 4
-    innerCeiling.firstMaterial?.lightingModel = .physicallyBased
-    innerCeiling.firstMaterial?.diffuse.contents =
+    ceiling.firstMaterial?.lightingModel = .physicallyBased
+    ceiling.firstMaterial?.diffuse.contents =
         UIImage(named:
             "night")
-    innerCeiling.firstMaterial?.emission.contents =
+    ceiling.firstMaterial?.emission.contents =
         UIImage(named:
             "night")
-    innerCeiling.firstMaterial?.normal.contents =
+    ceiling.firstMaterial?.normal.contents =
         UIImage(named:
             "night")
-    innerCeiling.firstMaterial?.specular.contents =
+    ceiling.firstMaterial?.specular.contents =
         UIImage(named:
             "night")
-    innerCeiling.firstMaterial?.selfIllumination.contents =
+    ceiling.firstMaterial?.selfIllumination.contents =
         UIImage(named:
             "night")
     
-    // 5
-    repeatTextures(geometry: innerCeiling, scaleX:
+    repeatTextures(geometry: ceiling, scaleX:
         SCALEX, scaleY: SCALEY)
     
-    // 6
-    let innerCeilingNode = SCNNode(geometry: innerCeiling)
-    innerCeilingNode.renderingOrder = 100
+    let ceilingNode = SCNNode(geometry: ceiling)
+    ceilingNode.renderingOrder = 100
     
-    // 7
-    innerCeilingNode.position = SCNVector3(SURFACE_HEIGHT * 0.5,
-                                           0, 0)
-    ceilingNode.addChildNode(innerCeilingNode)
+    ceilingNode.position = SCNVector3(SURFACE_HEIGHT, 0, 0)
     return ceilingNode
 }
