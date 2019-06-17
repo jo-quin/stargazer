@@ -16,6 +16,7 @@
 		3FEEEE6222B25645003B1955 /* stargazerV3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEEE6122B25645003B1955 /* stargazerV3UITests.swift */; };
 		3FEEEEB422B3A8F0003B1955 /* Icon-128 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEEEB322B3A8F0003B1955 /* Icon-128 (1).png */; };
 		3FEEEEC022B3AE53003B1955 /* Icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEEEBF22B3AE52003B1955 /* Icon-128.png */; };
+		D81757E422B7A8A1002F55B3 /* SCNNodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81757E322B7A8A1002F55B3 /* SCNNodeHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3FEEEE6322B25645003B1955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FEEEEB322B3A8F0003B1955 /* Icon-128 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-128 (1).png"; sourceTree = "<group>"; };
 		3FEEEEBF22B3AE52003B1955 /* Icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-128.png"; sourceTree = "<group>"; };
+		D81757E322B7A8A1002F55B3 /* SCNNodeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				3FEEEE4D22B25644003B1955 /* Info.plist */,
 				3FEEEEBF22B3AE52003B1955 /* Icon-128.png */,
 				3FEEEEB322B3A8F0003B1955 /* Icon-128 (1).png */,
+				D81757E322B7A8A1002F55B3 /* SCNNodeHelpers.swift */,
 			);
 			path = stargazerV3;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				3FEEEE4422B25643003B1955 /* ViewController.swift in Sources */,
 				3FEEEE4222B25643003B1955 /* AppDelegate.swift in Sources */,
+				D81757E422B7A8A1002F55B3 /* SCNNodeHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,13 +445,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RQ938X45Q8;
+				DEVELOPMENT_TEAM = 8UAG5743KV;
 				INFOPLIST_FILE = stargazerV3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dominic.stargazerV3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominic.stargazerV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,13 +463,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RQ938X45Q8;
+				DEVELOPMENT_TEAM = 8UAG5743KV;
 				INFOPLIST_FILE = stargazerV3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dominic.stargazerV3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dominic.stargazerV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
