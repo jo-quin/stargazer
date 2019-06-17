@@ -23,15 +23,8 @@ class ViewController: UIViewController {
         
         sceneView.session.run(config)
         
-        addStar(material: "texture.jpg")
-        addStar(material: "sun.jpg")
-        addStar(material: "moon_material.jpeg")
-        addStar(material: "moon_material.jpeg")
-        
-        addPlanet(material: "sun.jpg", x: 0 , y: 0, z: -90, rotation: 0 )
-        addPlanet(material: "moon_material", x: 90 , y: 0, z: 50, rotation: 5 )
-        addPlanet(material: "sun.jpeg", x: 90 , y: 0, z: 0, rotation: 5 )
-        addPlanet(material: "sun.jpg", x: -90 , y: 0, z: 0, rotation: -5 )
+        addCelestialBody(x: 0, z: -10, radius: 1, name: "Polaris", type: "star")
+        addCelestialBody(x: 0, z: 10, radius: 1, name: "sun", type: "planet")
 
         addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
         addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
@@ -40,22 +33,22 @@ class ViewController: UIViewController {
       
     }
     
-    func addStar(material: String){
-        let sphere = SCNNode(geometry: SCNSphere(radius: 0.25))
-        sphere.position = SCNVector3(Float.random(in: 0 ..< 5),1 ,Float.random(in: 0 ..< 5))
-        sphere.geometry?.firstMaterial?.diffuse.contents = material
+    func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
+        let sphere = SCNNode(geometry: SCNSphere(radius: radius))
+        sphere.position = SCNVector3(x: x, y: 1, z: z)
+        
+        let type = type
+        if type == "planet" {
+            let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
+            let continuedRotate = SCNAction.repeatForever(rotate)
+            sphere.runAction(continuedRotate)
+            sphere.geometry?.firstMaterial?.diffuse.contents = "\(name).jpg"
+        } else {
+            sphere.geometry?.firstMaterial?.diffuse.contents = "moon_material.jpeg" // hardcode star material here
+        }
         sceneView.scene.rootNode.addChildNode(sphere)
     }
     
-    func addPlanet(material: String, x: Int, y: Int, z: Int, rotation: CGFloat){
-        let sphere = SCNNode(geometry: SCNSphere(radius: 10))
-        let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
-        let continuedRotate = SCNAction.repeatForever(rotate)
-        sphere.position = SCNVector3(x, y, z)
-        sphere.geometry?.firstMaterial?.diffuse.contents = material
-        sphere.runAction(continuedRotate)
-        sceneView.scene.rootNode.addChildNode(sphere)
-    }
     
     func addCoordinates(text: String, x: Int, y: Int, z: Int, rotation: CGFloat) {
         let text = SCNNode(geometry: SCNText(string: text, extrusionDepth: 5))
