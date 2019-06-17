@@ -1,5 +1,7 @@
 # StarGazer [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f325751f38b94a30bef75e07ac2bbca5)](https://app.codacy.com/app/CalumDarroch/stargazer?utm_source=github.com&utm_medium=referral&utm_content=jo-quin/stargazer&utm_campaign=Badge_Grade_Dashboard)
 
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/contributors/)
+
 Makers final engineering project
 
 ### Team Project
