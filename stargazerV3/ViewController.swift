@@ -62,7 +62,8 @@ class ViewController: UIViewController {
     
     func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
         let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-        let position = SCNVector3(x: x, y: 70, z: z) // y is the number to adjust spread
+        let height = Float(70) // y is the number to adjust spread
+        let position = SCNVector3(x: x, y: height, z: z)
         sphere.position = position
         
         if type == "planet" {
@@ -77,9 +78,21 @@ class ViewController: UIViewController {
             particleNode.addParticleSystem(particleSystem!)
             particleNode.position = position
             sceneView.scene.rootNode.addChildNode(particleNode)
-            
         }
-        
+        addTag(name: name, position: position)
+    }
+    
+    func addTag(name: String, position: SCNVector3){
+        let tag = SCNNode(geometry: SCNText(string: name, extrusionDepth: 5))
+        tag.position = position
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        let constraint = SCNLookAtConstraint(target: cameraNode)
+        constraint.isGimbalLockEnabled = true
+        tag.constraints = [constraint]
+        tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
+        tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        sceneView.scene.rootNode.addChildNode(tag)
     }
     
     
