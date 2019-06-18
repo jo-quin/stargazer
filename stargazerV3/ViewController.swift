@@ -62,17 +62,24 @@ class ViewController: UIViewController {
     
     func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
         let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-        sphere.position = SCNVector3(x: x, y: 100, z: z) // y is the number to adjust spread
+        let position = SCNVector3(x: x, y: 70, z: z) // y is the number to adjust spread
+        sphere.position = position
         
         if type == "planet" {
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
             sphere.runAction(continuedRotate)
             sphere.geometry?.firstMaterial?.diffuse.contents = "\(name).jpg"
+            sceneView.scene.rootNode.addChildNode(sphere)
         } else {
-            sphere.geometry?.firstMaterial?.diffuse.contents = "Moon.jpeg" // hardcode star material here
+            let particleSystem = SCNParticleSystem(named: "reactor", inDirectory: nil)
+            let particleNode = SCNNode()
+            particleNode.addParticleSystem(particleSystem!)
+            particleNode.position = position
+            sceneView.scene.rootNode.addChildNode(particleNode)
+            
         }
-        sceneView.scene.rootNode.addChildNode(sphere)
+        
     }
     
     
