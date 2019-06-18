@@ -21,23 +21,55 @@ class ViewController: UIViewController {
         config.planeDetection = .horizontal
         config.worldAlignment = .gravityAndHeading
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
         sceneView.session.run(config)
 
         addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
         addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
         addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
         addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
-        readFile()
+        readFileToCreateStars()
+        
       
     }
     
-    func readFile(){
+    func readFileToCreateStars(){
         var starsArray = [Any]()
         let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
         let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         let lines = content.components(separatedBy: "\n")
         lines.forEach {
             starsArray.append(createCelestialBodies(line: $0))
+        }
+    }
+    
+    func readFileToCreateTags(){
+        var starsArray = [Any]()
+        let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
+        let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        let lines = content.components(separatedBy: "\n")
+        lines.forEach {
+            starsArray.append(createCelestialTags(line: $0))
+        }
+    }
+    
+    func createCelestialTags(line: String){
+        let line = line.components(separatedBy: " ")
+        if line.count > 1 {
+            let dec = Float(line[5].components(separatedBy: "°")[0]) // make sure stars and planets txts have the same structure
+            let wtl = dec! - 51.49 // London latitude
+            let raNow = Int(line[3].components(separatedBy: "h")[0])! - 6 // 6 is hardcoded for month of June
+            let name = line[1]
+            
+            if wtl >= -90 {
+                if 13 > raNow && raNow > 0 {
+                    addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                } else if (90 - dec!) <= 50  {
+                    addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                }
+            }
         }
     }
     
@@ -62,7 +94,7 @@ class ViewController: UIViewController {
     
     func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
         let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-        let height = Float(70) // y is the number to adjust spread
+        let height = Float(70) // y is the number to adjust spread MAKE CONSTANT
         let position = SCNVector3(x: x, y: height, z: z)
         sphere.position = position
         
@@ -79,7 +111,6 @@ class ViewController: UIViewController {
             particleNode.position = position
             sceneView.scene.rootNode.addChildNode(particleNode)
         }
-        addTag(name: name, position: position)
     }
     
     func addTag(name: String, position: SCNVector3){
@@ -93,6 +124,10 @@ class ViewController: UIViewController {
         tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
         tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
         sceneView.scene.rootNode.addChildNode(tag)
+    }
+    
+    @objc func tapped(gestureRecognizer: UITapGestureRecognizer) {
+        readFileToCreateTags()
     }
     
     
