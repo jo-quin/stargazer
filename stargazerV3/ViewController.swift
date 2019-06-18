@@ -48,12 +48,13 @@ class ViewController: UIViewController {
             let wtl = dec! - 51.49 // London latitude
             let raNow = Int(line[3].components(separatedBy: "h")[0])! - 6 // 6 is hardcoded for month of June
             let name = line[1]
+            let type = line [0]
             
             if wtl >= -90 {
                 if 13 > raNow && raNow > 0 {
-                    addCelestialBody(x: Float((raNow - 6) * 5), z: Float(dec! * -1), radius: 0.2, name: name, type: "star") // work on hardcoded radius and type
+                    addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type) // work on hardcoded radius and type
                 } else if (90 - dec!) <= 50  {
-                    addCelestialBody(x: Float((raNow - 6) * 5), z: Float(dec! * -1), radius: 0.2, name: name, type: "star") // [ "x": RA - 6, "z": Dec * -1, "radius": VisualMagnitud + 1, "name": name, "type": type ]
+                    addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type) // [ "x": RA - 6, "z": Dec * -1, "radius": VisualMagnitud + 1, "name": name, "type": type ]
                 }
             }
         }
@@ -61,16 +62,15 @@ class ViewController: UIViewController {
     
     func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
         let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-        sphere.position = SCNVector3(x: x, y: 10, z: z)
+        sphere.position = SCNVector3(x: x, y: 100, z: z) // y is the number to adjust spread
         
-        let type = type
         if type == "planet" {
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
             sphere.runAction(continuedRotate)
             sphere.geometry?.firstMaterial?.diffuse.contents = "\(name).jpg"
         } else {
-            sphere.geometry?.firstMaterial?.diffuse.contents = "moon_material.jpeg" // hardcode star material here
+            sphere.geometry?.firstMaterial?.diffuse.contents = "Moon.jpeg" // hardcode star material here
         }
         sceneView.scene.rootNode.addChildNode(sphere)
     }
