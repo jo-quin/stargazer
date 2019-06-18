@@ -22,20 +22,46 @@ class ViewController: UIViewController {
         config.worldAlignment = .gravityAndHeading
         
         sceneView.session.run(config)
-        
-        addCelestialBody(x: 0, z: -10, radius: 1, name: "Polaris", type: "star")
-        addCelestialBody(x: 0, z: 10, radius: 1, name: "sun", type: "planet")
 
         addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
         addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
         addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
         addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
+        readFile()
       
+    }
+    
+    func readFile(){
+        var starsArray = [Any]()
+        let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
+        let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        let lines = content.components(separatedBy: "\n")
+        lines.forEach {
+            starsArray.append(createCelestialBodies(line: $0))
+        }
+    }
+    
+    func createCelestialBodies(line: String){
+        let line = line.components(separatedBy: " ")
+        if line.count > 1 {
+            let dec = Float(line[5].components(separatedBy: "°")[0]) // make sure stars and planets txts have the same structure
+            let wtl = dec! - 51.49 // London latitude
+            let raNow = Int(line[3].components(separatedBy: "h")[0])! - 6 // 6 is hardcoded for month of June
+            let name = line[1]
+            
+            if wtl >= -90 {
+                if 13 > raNow && raNow > 0 {
+                    addCelestialBody(x: Float((raNow - 6) * 5), z: Float(dec! * -1), radius: 0.2, name: name, type: "star") // work on hardcoded radius and type
+                } else if (90 - dec!) <= 50  {
+                    addCelestialBody(x: Float((raNow - 6) * 5), z: Float(dec! * -1), radius: 0.2, name: name, type: "star") // [ "x": RA - 6, "z": Dec * -1, "radius": VisualMagnitud + 1, "name": name, "type": type ]
+                }
+            }
+        }
     }
     
     func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
         let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-        sphere.position = SCNVector3(x: x, y: 1, z: z)
+        sphere.position = SCNVector3(x: x, y: 10, z: z)
         
         let type = type
         if type == "planet" {
