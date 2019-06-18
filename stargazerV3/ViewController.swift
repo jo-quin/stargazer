@@ -79,8 +79,7 @@ class ViewController: UIViewController {
     func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){        
         if type == "planet" {
             let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-            let position = SCNVector3(x: x, y: 70, z: z) // y is the height which help us to adjust spread of celestial bodies
-            sphere.position = position
+            sphere.position = SCNVector3(x: x, y: 70, z: z) // y is the height which help us to adjust spread of celestial bodies
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
             sphere.runAction(continuedRotate)
@@ -90,7 +89,7 @@ class ViewController: UIViewController {
             let particleSystem = SCNParticleSystem(named: "reactor", inDirectory: nil)
             let particleNode = SCNNode()
             particleNode.addParticleSystem(particleSystem!)
-            particleNode.position = position
+            particleNode.position = SCNVector3(x: x, y: 70, z: z)
             sceneView.scene.rootNode.addChildNode(particleNode)   
         }
     }
