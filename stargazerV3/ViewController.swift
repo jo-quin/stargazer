@@ -21,26 +21,30 @@ class ViewController: UIViewController {
         config.planeDetection = .horizontal
         config.worldAlignment = .gravityAndHeading
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
         sceneView.session.run(config)
 
         addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
         addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
         addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
         addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
-        readFile()
-      
+        
+        readFileToCreateNodes(starsOrTags: "Stars")
+        
     }
     
-    func readFile(){
-        let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)!
+    func readFileToCreateNodes(starsOrTags: String){
+        let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
         let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         let lines = content.components(separatedBy: "\n")
         lines.forEach {
-            createCelestialBodies(line: $0)
+            createCelestialNodes(line: $0, starsOrTags: starsOrTags)
         }
     }
     
-    func createCelestialBodies(line: String){
+    func createCelestialNodes(line: String, starsOrTags: String){
         let line = line.components(separatedBy: " ")
         
         // Checks for empty line
@@ -66,11 +70,19 @@ class ViewController: UIViewController {
                 
                 // Select the stars that are in the sky during night time
                 if 13 > raNow && raNow > 0 {
-                    addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
-                
+                    if starsOrTags == "Stars" {
+                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                    } else if starsOrTags == "Tags" {
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                    }
+                  
                 // Select the circumpolar stars (always on our sky)
                 } else if (90 - dec!) <= 50  {
-                    addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                    if starsOrTags == "Stars" {
+                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                    } else if starsOrTags == "Tags" {
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                    }
                 }
             }
         }
@@ -90,8 +102,25 @@ class ViewController: UIViewController {
             let particleNode = SCNNode()
             particleNode.addParticleSystem(particleSystem!)
             particleNode.position = SCNVector3(x: x, y: 70, z: z)
-            sceneView.scene.rootNode.addChildNode(particleNode)   
+            sceneView.scene.rootNode.addChildNode(particleNode)
         }
+    }
+    
+    func addTag(name: String, position: SCNVector3){
+        let tag = SCNNode(geometry: SCNText(string: name, extrusionDepth: 5))
+        tag.position = position
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        let constraint = SCNLookAtConstraint(target: cameraNode)
+        constraint.isGimbalLockEnabled = true
+        tag.constraints = [constraint]
+        tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
+        tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        sceneView.scene.rootNode.addChildNode(tag)
+    }
+    
+    @objc func tapped(gestureRecognizer: UITapGestureRecognizer) {
+        readFileToCreateNodes(starsOrTags: "Tags")
     }
     
     
