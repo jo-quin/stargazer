@@ -127,11 +127,13 @@ class ViewController: UIViewController {
         tagGeometry.firstMaterial?.diffuse.contents = UIColor.red
         tagGeometry.font = UIFont(name: "EliteDanger", size: 8)
         tag.geometry = tagGeometry
+        tag.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0.15, green: 0.78, blue: 0.85, alpha: 1.0)
         
-        // check if the tag is for a planet or for a star to adjust dy
+        // check if the tag is for a planet or for a star to adjust dy and color
         var dyLocation = 1.5
         if type == "planet" {
             dyLocation = -5
+            tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
         }
         if name == "Moon" {
             dyLocation = -3
@@ -143,7 +145,7 @@ class ViewController: UIViewController {
         let constraint = SCNLookAtConstraint(target: cameraNode)
         constraint.isGimbalLockEnabled = true
         tag.constraints = [constraint]
-        tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        
         
         // changes the center of the text to be the center of the node
         let (min, max) = tag.boundingBox
