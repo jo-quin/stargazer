@@ -36,11 +36,6 @@ class ViewController: UIViewController {
         
         sceneView.session.run(config)
 
-        addCoordinates(text: "NORTH", x: 0 , y: 0, z: -100, rotation: 0 )
-        addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
-        addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
-        addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
-        
         readFileToCreateNodes(starsOrTags: "Stars")
         
     }
