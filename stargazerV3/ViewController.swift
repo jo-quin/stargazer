@@ -119,7 +119,14 @@ class ViewController: UIViewController {
     }
     
     func addTag(name: String, position: SCNVector3){
-        let tag = SCNNode(geometry: SCNText(string: name, extrusionDepth: 5))
+        let tag = SCNNode()
+        let tagGeometry = SCNText(string: name, extrusionDepth: 5)
+        
+        tagGeometry.firstMaterial?.diffuse.contents = UIColor.red
+        tagGeometry.font = UIFont(name: "Times New Roman", size: 12)
+        
+        tag.geometry = tagGeometry
+        
         tag.name = "tag"
         tag.position = position
         let cameraNode = SCNNode()
@@ -128,7 +135,7 @@ class ViewController: UIViewController {
         constraint.isGimbalLockEnabled = true
         tag.constraints = [constraint]
         tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
-        tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        
         sceneView.scene.rootNode.addChildNode(tag)
     }
     
