@@ -82,7 +82,7 @@ class ViewController: UIViewController {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
                         addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
-                    }
+                    }git s
                   
                 // Select the circumpolar stars (always on our sky)
                 } else if (90 - dec!) <= 50  {
@@ -97,6 +97,7 @@ class ViewController: UIViewController {
     }
     
     func addCelestialBody(x: Float, z: Float, name: String, type: String ){
+        
         var radius = 20
         if type == "planet" {
             if name == "Moon" {
@@ -120,10 +121,10 @@ class ViewController: UIViewController {
     
     func addTag(name: String, position: SCNVector3){
         let tag = SCNNode()
-        let tagGeometry = SCNText(string: name, extrusionDepth: 5)
+        let tagGeometry = SCNText(string: name.lowercased(), extrusionDepth: 5)
         
         tagGeometry.firstMaterial?.diffuse.contents = UIColor.red
-        tagGeometry.font = UIFont(name: "Times New Roman", size: 12)
+        tagGeometry.font = UIFont(name: "EliteDanger", size: 12)
         
         tag.geometry = tagGeometry
         
