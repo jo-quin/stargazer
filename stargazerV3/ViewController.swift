@@ -121,20 +121,20 @@ class ViewController: UIViewController {
         }
     }
 
-    func addTag(name: String, position: SCNVector3){
+    func addTag(name: String, position: SCNVector3, type: String){
         let tag = SCNNode()
         let tagGeometry = SCNText(string: name.lowercased(), extrusionDepth: 5)
         tagGeometry.firstMaterial?.diffuse.contents = UIColor.red
-        tagGeometry.font = UIFont(name: "EliteDanger", size: 12)
+        tagGeometry.font = UIFont(name: "EliteDanger", size: 13)
         tag.geometry = tagGeometry
         
         // check if the tag is for a planet or for a star to adjust dy
-        var dyLocation = 1.2
+        var dyLocation = 1.5
         if type == "planet" {
-            dyLocation = 3.2
+            dyLocation = 4.5
         }
         if name == "Moon" {
-            dyLocation = 2.5
+            dyLocation = 3
         }
         tag.name = "tag"
         tag.position = position
