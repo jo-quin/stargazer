@@ -21,8 +21,16 @@ class ViewController: UIViewController {
         config.planeDetection = .horizontal
         config.worldAlignment = .gravityAndHeading
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        doubleTapGesture.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTapGesture)
+        
+        tapGesture.require(toFail: tapGesture)
         
         sceneView.session.run(config)
 
@@ -108,6 +116,7 @@ class ViewController: UIViewController {
     
     func addTag(name: String, position: SCNVector3){
         let tag = SCNNode(geometry: SCNText(string: name, extrusionDepth: 5))
+        tag.name = "tag"
         tag.position = position
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
@@ -123,6 +132,25 @@ class ViewController: UIViewController {
         readFileToCreateNodes(starsOrTags: "Tags")
     }
     
+    @objc func doubleTapped(gestureRecognizer: UITapGestureRecognizer) {
+        resetScene()
+        
+    }
+    
+    func resetScene() {
+        sceneView.session.pause()
+        sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            if node.name == "tag" {
+                node.removeFromParentNode()
+            }
+        }
+        
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = .horizontal
+        config.worldAlignment = .gravityAndHeading
+        
+        sceneView.session.run(config)
+    }
     
     func addCoordinates(text: String, x: Int, y: Int, z: Int, rotation: CGFloat) {
         let text = SCNNode(geometry: SCNText(string: text, extrusionDepth: 5))
