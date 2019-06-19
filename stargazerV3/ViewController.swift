@@ -125,16 +125,16 @@ class ViewController: UIViewController {
         let tag = SCNNode()
         let tagGeometry = SCNText(string: name.lowercased(), extrusionDepth: 5)
         tagGeometry.firstMaterial?.diffuse.contents = UIColor.red
-        tagGeometry.font = UIFont(name: "EliteDanger", size: 13)
+        tagGeometry.font = UIFont(name: "EliteDanger", size: 8)
         tag.geometry = tagGeometry
         
         // check if the tag is for a planet or for a star to adjust dy
         var dyLocation = 1.5
         if type == "planet" {
-            dyLocation = 4.5
+            dyLocation = -5
         }
         if name == "Moon" {
-            dyLocation = 3
+            dyLocation = -3
         }
         tag.name = "tag"
         tag.position = position
