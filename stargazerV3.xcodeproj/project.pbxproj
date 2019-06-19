@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FAD246922BA7AEF00AACACA /* Personal_use_only_read_this.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD246722BA7AEF00AACACA /* Personal_use_only_read_this.rtf */; };
+		3FAD246A22BA7AEF00AACACA /* Anurati-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD246822BA7AEF00AACACA /* Anurati-Regular.otf */; };
+		3FAD246C22BA7BCF00AACACA /* elitedanger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD246022BA7ACC00AACACA /* elitedanger.ttf */; };
 		3FEEEE4222B25643003B1955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEEE4122B25643003B1955 /* AppDelegate.swift */; };
 		3FEEEE4422B25643003B1955 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEEE4322B25643003B1955 /* ViewController.swift */; };
 		3FEEEE4722B25643003B1955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEEEE4522B25643003B1955 /* Main.storyboard */; };
@@ -39,6 +42,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FAD244322BA7ACC00AACACA /* elitedangerboldsemital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldsemital.ttf; sourceTree = "<group>"; };
+		3FAD244422BA7ACC00AACACA /* elitedangertitle.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangertitle.ttf; sourceTree = "<group>"; };
+		3FAD244522BA7ACC00AACACA /* elitedangercond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangercond.ttf; sourceTree = "<group>"; };
+		3FAD244622BA7ACC00AACACA /* elitedanger3d.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedanger3d.ttf; sourceTree = "<group>"; };
+		3FAD244722BA7ACC00AACACA /* elitedangerboldital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldital.ttf; sourceTree = "<group>"; };
+		3FAD244822BA7ACC00AACACA /* elitedangerexpandital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerexpandital.ttf; sourceTree = "<group>"; };
+		3FAD244922BA7ACC00AACACA /* elitedangerexpand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerexpand.ttf; sourceTree = "<group>"; };
+		3FAD244A22BA7ACC00AACACA /* elitedangertitleital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangertitleital.ttf; sourceTree = "<group>"; };
+		3FAD244B22BA7ACC00AACACA /* elitedangersemital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemital.ttf; sourceTree = "<group>"; };
+		3FAD244C22BA7ACC00AACACA /* elitedangercondital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangercondital.ttf; sourceTree = "<group>"; };
+		3FAD244D22BA7ACC00AACACA /* elitedangerboldexpandital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldexpandital.ttf; sourceTree = "<group>"; };
+		3FAD244E22BA7ACC00AACACA /* elitedangerboldcond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldcond.ttf; sourceTree = "<group>"; };
+		3FAD244F22BA7ACC00AACACA /* elitedangerbold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerbold.ttf; sourceTree = "<group>"; };
+		3FAD245022BA7ACC00AACACA /* elitedangerout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerout.ttf; sourceTree = "<group>"; };
+		3FAD245122BA7ACC00AACACA /* elitedanger.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = elitedanger.txt; sourceTree = "<group>"; };
+		3FAD245222BA7ACC00AACACA /* elitedangerital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerital.ttf; sourceTree = "<group>"; };
+		3FAD245322BA7ACC00AACACA /* elitedangerboldexpand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldexpand.ttf; sourceTree = "<group>"; };
+		3FAD245422BA7ACC00AACACA /* elitedangeroutital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangeroutital.ttf; sourceTree = "<group>"; };
+		3FAD245522BA7ACC00AACACA /* elitedangerboldcondital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldcondital.ttf; sourceTree = "<group>"; };
+		3FAD245622BA7ACC00AACACA /* elitedangersemiboldsemital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldsemital.ttf; sourceTree = "<group>"; };
+		3FAD245722BA7ACC00AACACA /* elitedangergradital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangergradital.ttf; sourceTree = "<group>"; };
+		3FAD245822BA7ACC00AACACA /* elitedangersemiboldcond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldcond.ttf; sourceTree = "<group>"; };
+		3FAD245922BA7ACC00AACACA /* elitedangersemiboldcondital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldcondital.ttf; sourceTree = "<group>"; };
+		3FAD245A22BA7ACC00AACACA /* elitedangergrad.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangergrad.ttf; sourceTree = "<group>"; };
+		3FAD245B22BA7ACC00AACACA /* elitedangerboldsuperital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerboldsuperital.ttf; sourceTree = "<group>"; };
+		3FAD245C22BA7ACC00AACACA /* elitedangersemiboldsuperital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldsuperital.ttf; sourceTree = "<group>"; };
+		3FAD245D22BA7ACC00AACACA /* elitedangersemiboldital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldital.ttf; sourceTree = "<group>"; };
+		3FAD245E22BA7ACC00AACACA /* elitedanger3dital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedanger3dital.ttf; sourceTree = "<group>"; };
+		3FAD245F22BA7ACC00AACACA /* elitedangerleft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangerleft.ttf; sourceTree = "<group>"; };
+		3FAD246022BA7ACC00AACACA /* elitedanger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedanger.ttf; sourceTree = "<group>"; };
+		3FAD246122BA7ACC00AACACA /* elitedangersemiboldexpand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldexpand.ttf; sourceTree = "<group>"; };
+		3FAD246222BA7ACC00AACACA /* elitedangersemiboldexpandital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemiboldexpandital.ttf; sourceTree = "<group>"; };
+		3FAD246322BA7ACC00AACACA /* elitedangersemibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersemibold.ttf; sourceTree = "<group>"; };
+		3FAD246422BA7ACC00AACACA /* elitedangersuperital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elitedangersuperital.ttf; sourceTree = "<group>"; };
+		3FAD246722BA7AEF00AACACA /* Personal_use_only_read_this.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Personal_use_only_read_this.rtf; sourceTree = "<group>"; };
+		3FAD246822BA7AEF00AACACA /* Anurati-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anurati-Regular.otf"; sourceTree = "<group>"; };
 		3FEEEE3E22B25643003B1955 /* stargazerV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stargazerV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEEEE4122B25643003B1955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FEEEE4322B25643003B1955 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +123,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FAD244222BA7ACC00AACACA /* elite_danger */ = {
+			isa = PBXGroup;
+			children = (
+				3FAD244322BA7ACC00AACACA /* elitedangerboldsemital.ttf */,
+				3FAD244422BA7ACC00AACACA /* elitedangertitle.ttf */,
+				3FAD244522BA7ACC00AACACA /* elitedangercond.ttf */,
+				3FAD244622BA7ACC00AACACA /* elitedanger3d.ttf */,
+				3FAD244722BA7ACC00AACACA /* elitedangerboldital.ttf */,
+				3FAD244822BA7ACC00AACACA /* elitedangerexpandital.ttf */,
+				3FAD244922BA7ACC00AACACA /* elitedangerexpand.ttf */,
+				3FAD244A22BA7ACC00AACACA /* elitedangertitleital.ttf */,
+				3FAD244B22BA7ACC00AACACA /* elitedangersemital.ttf */,
+				3FAD244C22BA7ACC00AACACA /* elitedangercondital.ttf */,
+				3FAD244D22BA7ACC00AACACA /* elitedangerboldexpandital.ttf */,
+				3FAD244E22BA7ACC00AACACA /* elitedangerboldcond.ttf */,
+				3FAD244F22BA7ACC00AACACA /* elitedangerbold.ttf */,
+				3FAD245022BA7ACC00AACACA /* elitedangerout.ttf */,
+				3FAD245122BA7ACC00AACACA /* elitedanger.txt */,
+				3FAD245222BA7ACC00AACACA /* elitedangerital.ttf */,
+				3FAD245322BA7ACC00AACACA /* elitedangerboldexpand.ttf */,
+				3FAD245422BA7ACC00AACACA /* elitedangeroutital.ttf */,
+				3FAD245522BA7ACC00AACACA /* elitedangerboldcondital.ttf */,
+				3FAD245622BA7ACC00AACACA /* elitedangersemiboldsemital.ttf */,
+				3FAD245722BA7ACC00AACACA /* elitedangergradital.ttf */,
+				3FAD245822BA7ACC00AACACA /* elitedangersemiboldcond.ttf */,
+				3FAD245922BA7ACC00AACACA /* elitedangersemiboldcondital.ttf */,
+				3FAD245A22BA7ACC00AACACA /* elitedangergrad.ttf */,
+				3FAD245B22BA7ACC00AACACA /* elitedangerboldsuperital.ttf */,
+				3FAD245C22BA7ACC00AACACA /* elitedangersemiboldsuperital.ttf */,
+				3FAD245D22BA7ACC00AACACA /* elitedangersemiboldital.ttf */,
+				3FAD245E22BA7ACC00AACACA /* elitedanger3dital.ttf */,
+				3FAD245F22BA7ACC00AACACA /* elitedangerleft.ttf */,
+				3FAD246022BA7ACC00AACACA /* elitedanger.ttf */,
+				3FAD246122BA7ACC00AACACA /* elitedangersemiboldexpand.ttf */,
+				3FAD246222BA7ACC00AACACA /* elitedangersemiboldexpandital.ttf */,
+				3FAD246322BA7ACC00AACACA /* elitedangersemibold.ttf */,
+				3FAD246422BA7ACC00AACACA /* elitedangersuperital.ttf */,
+			);
+			path = elite_danger;
+			sourceTree = "<group>";
+		};
+		3FAD246622BA7AEF00AACACA /* anurati_font */ = {
+			isa = PBXGroup;
+			children = (
+				3FAD246722BA7AEF00AACACA /* Personal_use_only_read_this.rtf */,
+				3FAD246822BA7AEF00AACACA /* Anurati-Regular.otf */,
+			);
+			name = anurati_font;
+			path = elite_danger/anurati_font;
+			sourceTree = "<group>";
+		};
 		3FEEEE3522B25643003B1955 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +208,8 @@
 				3FEEEE4D22B25644003B1955 /* Info.plist */,
 				3FEEEEBF22B3AE52003B1955 /* Icon-128.png */,
 				3FEEEEB322B3A8F0003B1955 /* Icon-128 (1).png */,
+				3FAD246622BA7AEF00AACACA /* anurati_font */,
+				3FAD244222BA7ACC00AACACA /* elite_danger */,
 			);
 			path = stargazerV3;
 			sourceTree = "<group>";
@@ -245,13 +337,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEEEE4C22B25644003B1955 /* LaunchScreen.storyboard in Resources */,
+				3FAD246922BA7AEF00AACACA /* Personal_use_only_read_this.rtf in Resources */,
 				3FEEEE4922B25644003B1955 /* Assets.xcassets in Resources */,
 				3FF620DE22B93C5A0006FEB7 /* reactor.scnp in Resources */,
 				3FEEEEB422B3A8F0003B1955 /* Icon-128 (1).png in Resources */,
 				3FEEEEC022B3AE53003B1955 /* Icon-128.png in Resources */,
 				3FF620E022B93C650006FEB7 /* spark.png in Resources */,
+				3FAD246A22BA7AEF00AACACA /* Anurati-Regular.otf in Resources */,
 				3FF620DC22B93ACE0006FEB7 /* stars.txt in Resources */,
 				3FEEEE4722B25643003B1955 /* Main.storyboard in Resources */,
+				3FAD246C22BA7BCF00AACACA /* elitedanger.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,13 +548,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RQ938X45Q8;
+				DEVELOPMENT_TEAM = GQ44YM5VK7;
 				INFOPLIST_FILE = stargazerV3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stu.stargazerV33;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calum.stargazerV33;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,13 +566,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RQ938X45Q8;
+				DEVELOPMENT_TEAM = GQ44YM5VK7;
 				INFOPLIST_FILE = stargazerV3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stu.stargazerV33;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calum.stargazerV33;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
