@@ -12,6 +12,8 @@ import SceneKit
 
 class ViewController: UIViewController {
     
+    let height = Float(70)
+    
     @IBOutlet weak var sceneView: ARSCNView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,15 +83,15 @@ class ViewController: UIViewController {
                     if starsOrTags == "Stars" {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
-                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
-                    }git s
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), height, Float((dec! * -1) * 4 )), type: type)
+                    }
                   
                 // Select the circumpolar stars (always on our sky)
                 } else if (90 - dec!) <= 50  {
                     if starsOrTags == "Stars" {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
-                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), height, Float((dec! * -1) * 4 )), type: type)
                     }
                 }
             }
@@ -104,7 +106,7 @@ class ViewController: UIViewController {
                 radius = 10
             }
             let sphere = SCNNode(geometry: SCNSphere(radius: CGFloat(radius)))
-            sphere.position = SCNVector3(x: x, y: 70, z: z) // y is the height which help us to adjust spread of celestial bodies
+            sphere.position = SCNVector3(x: x, y: height, z: z) // y is the height which help us to adjust spread of celestial bodies
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
             sphere.runAction(continuedRotate)
@@ -114,20 +116,26 @@ class ViewController: UIViewController {
             let particleSystem = SCNParticleSystem(named: "reactor", inDirectory: nil)
             let particleNode = SCNNode()
             particleNode.addParticleSystem(particleSystem!)
-            particleNode.position = SCNVector3(x: x, y: 70, z: z)
+            particleNode.position = SCNVector3(x: x, y: height, z: z)
             sceneView.scene.rootNode.addChildNode(particleNode)
         }
     }
-    
+
     func addTag(name: String, position: SCNVector3){
         let tag = SCNNode()
         let tagGeometry = SCNText(string: name.lowercased(), extrusionDepth: 5)
-        
         tagGeometry.firstMaterial?.diffuse.contents = UIColor.red
         tagGeometry.font = UIFont(name: "EliteDanger", size: 12)
-        
         tag.geometry = tagGeometry
         
+        // check if the tag is for a planet or for a star to adjust dy
+        var dyLocation = 1.2
+        if type == "planet" {
+            dyLocation = 3.2
+        }
+        if name == "Moon" {
+            dyLocation = 2.5
+        }
         tag.name = "tag"
         tag.position = position
         let cameraNode = SCNNode()
@@ -135,6 +143,16 @@ class ViewController: UIViewController {
         let constraint = SCNLookAtConstraint(target: cameraNode)
         constraint.isGimbalLockEnabled = true
         tag.constraints = [constraint]
+        tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        
+        // changes the center of the text to be the center of the node
+        let (min, max) = tag.boundingBox
+        let dx = min.x - 0.5 * (max.x - min.x)
+        let dy = min.y + Float(dyLocation) * (max.y - min.y) // to position below
+        let dz = min.z + 0.5 * (max.z - min.z)
+        tag.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
+        
+        // rotates the text to face the camera
         tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
         
         sceneView.scene.rootNode.addChildNode(tag)
