@@ -36,31 +36,47 @@ class ViewController: UIViewController {
     }
     
     func readFileToCreateNodes(starsOrTags: String){
-        var starsArray = [Any]()
         let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
         let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         let lines = content.components(separatedBy: "\n")
         lines.forEach {
-            starsArray.append(createCelestialNodes(line: $0, starsOrTags: starsOrTags))
+            createCelestialNodes(line: $0, starsOrTags: starsOrTags)
         }
     }
     
     func createCelestialNodes(line: String, starsOrTags: String){
         let line = line.components(separatedBy: " ")
+        
+        // Checks for empty line
         if line.count > 1 {
-            let dec = Float(line[5].components(separatedBy: "°")[0]) // make sure stars and planets txts have the same structure
-            let wtl = dec! - 51.49 // London latitude
+            
+            // Declination
+            let dec = Float(line[5].components(separatedBy: "°")[0])
+            
+            // Where to look based on our postion London Latitude (51.49)
+            let wtl = dec! - 51.49
+            
+            // Right Ascension for the current month
             let raNow = Int(line[3].components(separatedBy: "h")[0])! - 6 // 6 is hardcoded for month of June
+            
             let name = line[1]
+            
+            // Type Planet or Star
             let type = line [0]
             
+            // Find the celestial bodies that we can see from out location
+            // Discard any celestial body that stays behind the horizon
             if wtl >= -90 {
+                
+                // Select the stars that are in the sky during night time
                 if 13 > raNow && raNow > 0 {
                     if starsOrTags == "Stars" {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
                     } else if starsOrTags == "Tags" {
                         addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
                     }
+                  
+                // Select the circumpolar stars (always on our sky)
                 } else if (90 - dec!) <= 50  {
                     if starsOrTags == "Stars" {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
@@ -72,13 +88,10 @@ class ViewController: UIViewController {
         }
     }
     
-    func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){
-        let sphere = SCNNode(geometry: SCNSphere(radius: radius))
-        let height = Float(70) // y is the number to adjust spread MAKE CONSTANT
-        let position = SCNVector3(x: x, y: height, z: z)
-        sphere.position = position
-        
+    func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){        
         if type == "planet" {
+            let sphere = SCNNode(geometry: SCNSphere(radius: radius))
+            sphere.position = SCNVector3(x: x, y: 70, z: z) // y is the height which help us to adjust spread of celestial bodies
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
             sphere.runAction(continuedRotate)
@@ -88,7 +101,7 @@ class ViewController: UIViewController {
             let particleSystem = SCNParticleSystem(named: "reactor", inDirectory: nil)
             let particleNode = SCNNode()
             particleNode.addParticleSystem(particleSystem!)
-            particleNode.position = position
+            particleNode.position = SCNVector3(x: x, y: 70, z: z)
             sceneView.scene.rootNode.addChildNode(particleNode)
         }
     }
@@ -118,6 +131,5 @@ class ViewController: UIViewController {
         text.runAction(SCNAction.rotateBy(x: 0, y: rotation, z: 0, duration: 0))
         sceneView.scene.rootNode.addChildNode(text)
     }
-    
 }
 
