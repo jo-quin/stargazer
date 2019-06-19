@@ -79,7 +79,7 @@ class ViewController: UIViewController {
                 // Select the stars that are in the sky during night time
                 if 13 > raNow && raNow > 0 {
                     if starsOrTags == "Stars" {
-                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
                         addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
                     }
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
                 // Select the circumpolar stars (always on our sky)
                 } else if (90 - dec!) <= 50  {
                     if starsOrTags == "Stars" {
-                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
                         addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
                     }
@@ -96,9 +96,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func addCelestialBody(x: Float, z: Float, radius: CGFloat, name: String, type: String ){        
+    func addCelestialBody(x: Float, z: Float, name: String, type: String ){        
         if type == "planet" {
-            let sphere = SCNNode(geometry: SCNSphere(radius: radius))
+            let sphere = SCNNode(geometry: SCNSphere(radius: 20))
             sphere.position = SCNVector3(x: x, y: 70, z: z) // y is the height which help us to adjust spread of celestial bodies
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
