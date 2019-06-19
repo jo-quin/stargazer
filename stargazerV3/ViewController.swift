@@ -81,7 +81,7 @@ class ViewController: UIViewController {
                     if starsOrTags == "Stars" {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
-                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )), type: type)
                     }
                   
                 // Select the circumpolar stars (always on our sky)
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
                     if starsOrTags == "Stars" {
                         addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, name: name, type: type)
                     } else if starsOrTags == "Tags" {
-                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )), type: type)
                     }
                 }
             }
@@ -118,7 +118,17 @@ class ViewController: UIViewController {
         }
     }
     
-    func addTag(name: String, position: SCNVector3){
+    func addTag(name: String, position: SCNVector3,type: String){
+        
+        // check if the tag is for a planet or for a star to adjust dy
+        var dyLocation = 1.2
+        if type == "planet" {
+            dyLocation = 3.2
+        }
+        if name == "Moon" {
+            dyLocation = 2.5
+        }
+        
         let tag = SCNNode(geometry: SCNText(string: name, extrusionDepth: 5))
         tag.name = "tag"
         tag.position = position
@@ -127,8 +137,19 @@ class ViewController: UIViewController {
         let constraint = SCNLookAtConstraint(target: cameraNode)
         constraint.isGimbalLockEnabled = true
         tag.constraints = [constraint]
-        tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
+        
         tag.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        
+        // changes the center of the text to be the center of the node
+        let (min, max) = tag.boundingBox
+        let dx = min.x - 0.5 * (max.x - min.x)
+        let dy = min.y + Float(dyLocation) * (max.y - min.y) // to position below
+        let dz = min.z + 0.5 * (max.z - min.z)
+        tag.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
+        
+        // rotates the text to face the camera
+        tag.pivot = SCNMatrix4Rotate(tag.pivot, Float.pi, 0, 1, 0)
+        
         sceneView.scene.rootNode.addChildNode(tag)
     }
     
