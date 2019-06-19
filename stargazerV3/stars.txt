@@ -50,9 +50,9 @@ star Algieba 2.01 10h 20m +19.8°
 star Hamal 2.01 02h 07m +23.5°
 planet Mercury vm 07h 04m +24.3°
 planet Venus vm 04h 18m +20.6°
-planet Mars vm 07h 21m +23.3°
-planet Jupiter vm 17h 11m -22.4°
+planet Mars vm 09h 21m +23.3°
+planet Jupiter vm 16h 11m -22.4°
 planet Saturn vm 19h 20m -21.8°
 planet Uranus vm 02h 11m +12.7°
 planet Neptune vm 23h 19m -05.5°
-planet Moon vm 17h 21m -20.8°
+planet Moon vm 18h 21m -20.8°

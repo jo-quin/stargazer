@@ -96,9 +96,13 @@ class ViewController: UIViewController {
         }
     }
     
-    func addCelestialBody(x: Float, z: Float, name: String, type: String ){        
+    func addCelestialBody(x: Float, z: Float, name: String, type: String ){
+        var radius = 20
         if type == "planet" {
-            let sphere = SCNNode(geometry: SCNSphere(radius: 20))
+            if name == "Moon" {
+                radius = 10
+            }
+            let sphere = SCNNode(geometry: SCNSphere(radius: CGFloat(radius)))
             sphere.position = SCNVector3(x: x, y: 70, z: z) // y is the height which help us to adjust spread of celestial bodies
             let rotate = SCNAction.rotateBy(x: 0, y: 0.5, z: 0, duration: 1.0)
             let continuedRotate = SCNAction.repeatForever(rotate)
