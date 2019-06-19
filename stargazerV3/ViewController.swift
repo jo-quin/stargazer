@@ -30,50 +30,22 @@ class ViewController: UIViewController {
         addCoordinates(text: "SOUTH", x: 0, y: 0, z: 100, rotation: 10 )
         addCoordinates(text: "EAST", x: 100, y: 0, z: 0, rotation: 5 )
         addCoordinates(text: "WEST", x: -100, y: 0, z: 0, rotation: -5 )
-        readFileToCreateStars()
         
-      
+        readFileToCreateNodes(starsOrTags: "Stars")
+        
     }
     
-    func readFileToCreateStars(){
+    func readFileToCreateNodes(starsOrTags: String){
         var starsArray = [Any]()
         let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
         let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         let lines = content.components(separatedBy: "\n")
         lines.forEach {
-            starsArray.append(createCelestialBodies(line: $0))
+            starsArray.append(createCelestialNodes(line: $0, starsOrTags: starsOrTags))
         }
     }
     
-    func readFileToCreateTags(){
-        var starsArray = [Any]()
-        let path = Bundle.main.path(forResource: "stars.txt", ofType: nil)! // add planet to the same file?
-        let content = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-        let lines = content.components(separatedBy: "\n")
-        lines.forEach {
-            starsArray.append(createCelestialTags(line: $0))
-        }
-    }
-    
-    func createCelestialTags(line: String){
-        let line = line.components(separatedBy: " ")
-        if line.count > 1 {
-            let dec = Float(line[5].components(separatedBy: "°")[0]) // make sure stars and planets txts have the same structure
-            let wtl = dec! - 51.49 // London latitude
-            let raNow = Int(line[3].components(separatedBy: "h")[0])! - 6 // 6 is hardcoded for month of June
-            let name = line[1]
-            
-            if wtl >= -90 {
-                if 13 > raNow && raNow > 0 {
-                    addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
-                } else if (90 - dec!) <= 50  {
-                    addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
-                }
-            }
-        }
-    }
-    
-    func createCelestialBodies(line: String){
+    func createCelestialNodes(line: String, starsOrTags: String){
         let line = line.components(separatedBy: " ")
         if line.count > 1 {
             let dec = Float(line[5].components(separatedBy: "°")[0]) // make sure stars and planets txts have the same structure
@@ -84,9 +56,17 @@ class ViewController: UIViewController {
             
             if wtl >= -90 {
                 if 13 > raNow && raNow > 0 {
-                    addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type) // work on hardcoded radius and type
+                    if starsOrTags == "Stars" {
+                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                    } else if starsOrTags == "Tags" {
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                    }
                 } else if (90 - dec!) <= 50  {
-                    addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type) // [ "x": RA - 6, "z": Dec * -1, "radius": VisualMagnitud + 1, "name": name, "type": type ]
+                    if starsOrTags == "Stars" {
+                        addCelestialBody(x: Float((raNow - 6) * 25), z: Float(dec! * -1) * 4, radius: 5, name: name, type: type)
+                    } else if starsOrTags == "Tags" {
+                        addTag(name: name, position: SCNVector3(Float((raNow - 6) * 25), Float(70), Float((dec! * -1) * 4 )))
+                    }
                 }
             }
         }
@@ -127,7 +107,7 @@ class ViewController: UIViewController {
     }
     
     @objc func tapped(gestureRecognizer: UITapGestureRecognizer) {
-        readFileToCreateTags()
+        readFileToCreateNodes(starsOrTags: "Tags")
     }
     
     
